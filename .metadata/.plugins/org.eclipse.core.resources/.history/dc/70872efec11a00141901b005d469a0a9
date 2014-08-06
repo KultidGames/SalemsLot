@@ -1,0 +1,8 @@
+package Game.gfx;
+
+public class SpriteSheet {
+	
+	private BufferedImage sheet;
+	
+
+}

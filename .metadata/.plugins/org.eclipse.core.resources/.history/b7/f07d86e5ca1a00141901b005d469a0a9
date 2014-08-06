@@ -1,0 +1,12 @@
+package Game.tiles;
+
+import Game.gfx.ImageManager;
+
+public class GrassTile extends Tile {
+
+	public GrassTile(ImageManager im) {
+		super(im);
+		// TODO Auto-generated constructor stub
+	}
+
+}

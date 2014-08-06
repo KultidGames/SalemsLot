@@ -1,0 +1,6 @@
+package Game.tiles;
+
+public abstract class Tiles {
+	
+	
+}

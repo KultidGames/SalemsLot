@@ -1,0 +1,11 @@
+package Game.gfx;
+
+import java.awt.image.BufferedImage;
+
+public class ImageLoader {
+
+	public BufferedImage load(String path){
+		
+	}
+
+}

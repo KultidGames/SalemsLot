@@ -1,0 +1,75 @@
+package Game.entities;
+
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import Game.Game;
+import Game.gfx.ImageManager;
+
+public class Player implements KeyListener{
+
+	private int x, y;
+	private ImageManager im;
+	private boolean up = false, dn = false, lt = false, rt = false;
+	private final int SPEED = 3;
+	
+	public Player(int x, int y, ImageManager im){
+		this.x = x;
+		this.y = y;
+		this.im = im;
+	}
+	
+	public void tick(){
+		if (up){
+			y -= SPEED;
+		}
+		if (dn){
+			y += SPEED;
+		}
+		if (lt){
+			x -= SPEED;
+		}
+		if (rt){
+			x += SPEED;
+		}
+	}
+	public void render(Graphics g){
+		g.drawImage(im.crop(0, 0, 16, 16), x,y, 16 * Game.SCALE, 16 * Game.SCALE, null);
+	}
+
+	public void keyPressed(KeyEvent e) {
+		if(e.getKeyCode()== KeyEvent.VK_W){
+			up = true;
+		}
+		if(e.getKeyCode()== KeyEvent.VK_A){
+			lt = true;			
+		}
+		if(e.getKeyCode()== KeyEvent.VK_S){
+			dn = true;
+		}
+		if(e.getKeyCode()== KeyEvent.VK_D){
+			rt = true;
+		}
+	}
+
+	public void keyReleased(KeyEvent e) {
+		if(e.getKeyCode()== KeyEvent.VK_W){
+			up = false;
+		}
+		if(e.getKeyCode()== KeyEvent.VK_A){
+			lt = false;			
+		}
+		if(e.getKeyCode()== KeyEvent.VK_S){
+			dn = false;
+		}
+		if(e.getKeyCode()== KeyEvent.VK_D){
+			rt = false;
+		}
+	}
+
+	public void keyTyped(KeyEvent arg0) {
+		
+	}
+	
+}

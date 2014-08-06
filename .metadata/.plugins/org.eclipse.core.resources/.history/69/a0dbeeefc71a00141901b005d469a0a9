@@ -1,0 +1,13 @@
+package Game.gfx;
+
+import java.awt.image.BufferedImage;
+
+public class ImageManager {
+
+	public BufferedImage player;
+	
+	public ImageManager(SpriteSheet ss){
+		
+	}
+	
+}

@@ -1,0 +1,44 @@
+package Game;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+public class KeyManager implements KeyListener{
+
+	public void keyPressed(KeyEvent e) {
+	private boolean up = false, dn = false, lt = false, rt = false;
+		
+	if(e.getKeyCode()== KeyEvent.VK_W){
+			up = true;
+		}
+		if(e.getKeyCode()== KeyEvent.VK_A){
+			lt = true;			
+		}
+		if(e.getKeyCode()== KeyEvent.VK_S){
+			dn = true;
+		}
+		if(e.getKeyCode()== KeyEvent.VK_D){
+			rt = true;
+		}
+	}
+
+	public void keyReleased(KeyEvent e) {
+		if(e.getKeyCode()== KeyEvent.VK_W){
+			up = false;
+		}
+		if(e.getKeyCode()== KeyEvent.VK_A){
+			lt = false;			
+		}
+		if(e.getKeyCode()== KeyEvent.VK_S){
+			dn = false;
+		}
+		if(e.getKeyCode()== KeyEvent.VK_D){
+			rt = false;
+		}
+	}
+
+	public void keyTyped(KeyEvent arg0) {
+		
+	}
+	
+}

@@ -1,0 +1,9 @@
+package Game.gfx;
+
+public class ImageLoader {
+
+	public BufferedImage load(String path){
+		
+	}
+
+}

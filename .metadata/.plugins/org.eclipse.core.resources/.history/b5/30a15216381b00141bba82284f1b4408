@@ -1,0 +1,5 @@
+package Game.tiles;
+
+public class SandTile {
+
+}

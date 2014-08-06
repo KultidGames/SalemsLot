@@ -1,0 +1,14 @@
+package Game.gfx;
+
+import java.awt.image.BufferedImage;
+
+public class ImageManager {
+
+	public BufferedImage player, grassTile;
+	
+	public ImageManager(SpriteSheet ss){
+		player = ss.crop(0, 0, 16, 16);
+		player = ss.crop(1, 0, 16, 16);
+	}
+	
+}

@@ -1,0 +1,24 @@
+package Game.tiles;
+
+import java.awt.Graphics;
+import Game.Game;
+
+import Game.gfx.ImageManager;
+
+public class GrassTile extends Tile {
+
+	public GrassTile(ImageManager im) {
+		super(im);
+		x=0;
+		y=0;
+	}
+
+	public void tick() {
+		
+	}
+
+	public void render(Graphics g) {
+		g.drawImage(im.grassTile, x, y, 16 * Game.SCALE, 16 * Game.SCALE,null);
+	}
+
+}

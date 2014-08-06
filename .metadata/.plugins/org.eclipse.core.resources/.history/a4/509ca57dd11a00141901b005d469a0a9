@@ -1,0 +1,31 @@
+package Game.levels;
+
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+
+public class Level {
+	
+	private int[][] tiles;
+
+	public Level(BufferedImage levelImage){
+		loadLevel(levelImage);
+	}
+	
+	public void loadLevel(BufferedImage levelImage){
+		tiles = new int[levelImage.getWidth()][levelImage.getHeight()];
+		for (int y=0; y < levelImage.getHeight();y++){
+			for (int x=0; x < levelImage.getWidth();x++){
+				Color c = new Color(levelImage.getRGB(x, y));
+				String h = String.format("%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue());
+				
+				switch(h){ //LETTERS MUST BE LOWERCASE
+				case "00ff21"://Grass - 1
+					
+					break;
+				
+				}
+			}
+		}
+	}
+	
+}

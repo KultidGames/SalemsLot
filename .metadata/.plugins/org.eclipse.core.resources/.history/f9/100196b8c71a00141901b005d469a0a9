@@ -1,0 +1,5 @@
+package Game.gfx;
+
+public class ImageManager {
+
+}
