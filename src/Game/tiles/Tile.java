@@ -16,6 +16,7 @@ public abstract class Tile {
 	public static Tile tree = new TreeTile(Game.getImageManager());
 	public static Tile sand = new SandTile(Game.getImageManager());
 	public static Tile wall = new WallTile(Game.getImageManager());
+	public static Tile road = new RoadTile(Game.getImageManager());
 	
 	public Tile(ImageManager im){
 		this.im=im;
@@ -24,8 +25,8 @@ public abstract class Tile {
 	public abstract void tick();
 	public abstract void render(Graphics g, int x, int y);
 
-public boolean isSolid(){
-	return false;
-}
+	public boolean isSolid(){
+		return false;
+	}
 }
 //https://www.youtube.com/watch?v=lz03EbZHPGA 9:57

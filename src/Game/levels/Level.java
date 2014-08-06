@@ -47,6 +47,9 @@ public class Level {
 				case "000000"://Wall - 7
 					tiles[x][y] = 7;
 					break;
+				case "d3d3d3"://Road - 8
+					tiles[x][y] = 8;
+					break;
 				default:
 					tiles[x][y] = 3;
 					break;
@@ -65,14 +68,17 @@ public class Level {
 		int x1 = Math.min((xo + Game.WIDTH * Game.SCALE) / (Game.TILESIZE * Game.SCALE) + 1, w);
 		int y1 = Math.min((yo + Game.WIDTH * Game.SCALE) / (Game.TILESIZE * Game.SCALE) + 1, h);
 		
-		for(int y = 0; y < h;y++){
-			for(int x = 0; x < w;x++){
+		for(int y = y0; y < y1;y++){
+			for(int x = x0; x < x1;x++){
 				getTile(x, y).render(g, x * Game.TILESIZE * Game.SCALE - xo,y * Game.TILESIZE * Game.SCALE - yo);
 			}
 		}
 	}
 	
 	public Tile getTile(int x, int y){
+		if(x < 0 || y < 0 || x >= w || y >= h) // || means 'or'
+			return Tile.wall;
+		
 		switch(tiles[x][y]){
 		case 1:
 			return Tile.grass;
@@ -88,6 +94,8 @@ public class Level {
 			return Tile.sand;
 		case 7:
 			return Tile.wall;
+		case 8:
+			return Tile.road;
 		default:
 			return Tile.brick;
 		}

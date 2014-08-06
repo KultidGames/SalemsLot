@@ -16,7 +16,7 @@ import Game.levels.Level;
 
 public class Game extends Canvas implements Runnable{
 	private static final long serialVersionUID = 1L;
-	public static final int WIDTH = 200, HEIGHT = 200, SCALE = 2, TILESIZE = 16;
+	public static final int WIDTH = 200, HEIGHT = 200, SCALE = 7, TILESIZE = 16;
 	public static boolean running = false;
 	public Thread gameThread;
 	
@@ -25,7 +25,6 @@ public class Game extends Canvas implements Runnable{
 	
 	private static Player player;
 	public static Level level;
-	private Level l1;
 	
 	public void init(){
 		ImageLoader loader = new ImageLoader();
@@ -35,10 +34,9 @@ public class Game extends Canvas implements Runnable{
 		
 		im = new ImageManager(ss);
 		
-		player = new Player(WIDTH * SCALE / 2, HEIGHT * SCALE / 2 - 32, im);
-		BufferedImage limage = loader.load("/level.png");
-		l1 = new Level(limage);
+		player = new Player(WIDTH * SCALE / 2 - 120, HEIGHT * SCALE / 2 - 330, im); //Can Change Area
 		this.addKeyListener(new KeyManager());
+		level = new Level (loader.load("/level.png"));
 	}
 	
 	public synchronized void start(){
@@ -52,9 +50,8 @@ public class Game extends Canvas implements Runnable{
 		running=false;
 		try {
 			gameThread.join();
-		} catch (InterruptedException e) {
+		} catch (InterruptedException e) {e.printStackTrace();}
 		}
-	}
 	
 	public void run(){
 		init();
@@ -88,7 +85,7 @@ public class Game extends Canvas implements Runnable{
 		Graphics g = bs.getDrawGraphics();
 		//RENDER HERE
 		g.fillRect(0, 0, WIDTH * SCALE, HEIGHT * SCALE);
-		l1.render(g);
+		level.render(g);
 		player.render(g);
 		//RENDER END
 		g.dispose();
@@ -100,7 +97,7 @@ public class Game extends Canvas implements Runnable{
 		game.setMaximumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 		game.setMinimumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 		
-		JFrame frame = new JFrame("Tile RPG"); //Title Here
+		JFrame frame = new JFrame("Salem's Lot"); //Title Here
 		frame.setSize(WIDTH * SCALE, HEIGHT * SCALE);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
